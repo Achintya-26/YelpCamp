@@ -1,12 +1,13 @@
-// #comment changed
 const express=require('express');
 const mongoose=require('mongoose');
+const ejsMate=require('ejs-mate');
 const path=require('path');
 const Campground=require('./models/campground');
-const app=express();
 const methodoverride=require('method-override');
 
+const app=express();
 
+app.engine('ejs',ejsMate);
 app.set('views',path.join(__dirname,"/views"));
 app.set('view engine','ejs');
 
