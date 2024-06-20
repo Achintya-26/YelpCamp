@@ -2,28 +2,43 @@
     <div class="row">
         <h1 class="text-center">Edit Campground</h1>
         <div class="col-6 offset-3">
-            <form action="/campgrounds/<%=camp._id%>?_method=PUT" method="post">
+            <form action="/campgrounds/<%=camp._id%>?_method=PUT" method="post" novalidate class="validated-form">
                 <div class="mb-3"><label class="form-label" for="title">Title</label>
-                <input class="form-control" type="text" id="name" name="campground[title]" value="<%=camp.title%>">
-                </div>    
+                <input class="form-control" type="text" id="name" name="campground[title]" value="<%=camp.title%>" required>
+                 
+                <div class="valid-feedback">
+                    Looks good!
+                </div>  </div> 
                 <div class="mb-3"><label class="form-label" for="location">Location</label>
-                <input class="form-control" type="text" id="name" name="campground[location]" value="<%=camp.location%>">
+                <input class="form-control" type="text" id="name" name="campground[location]" value="<%=camp.location%>" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
                 </div>   
                 <div class="mb-3"><label class="form-label" for="image">Image URL</label>
-                    <input class="form-control" type="text" id="image" name="campground[image]" value="<%=camp.image%>">
-                    </div>   
+                    <input class="form-control" type="text" id="image" name="campground[image]" value="<%=camp.image%>" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div></div>   
+                     
                     <div class="mb-3">
                         <label class="form-label" for="price">Price</label>
                     <div class="input-group mb-3">
                         <span class="input-group-text" for="price">$</span>
-                        <input type="text" class="form-control" id="price" aria-describedby="price-label" aria-label="Amount (to the nearest dollar)" name="campground[price]" value="<%=camp.price%>">
+                        <input type="text" class="form-control" id="price" aria-describedby="price-label" aria-label="Amount (to the nearest dollar)" name="campground[price]" value="<%=camp.price%>" required>
                         <span class="input-group-text">.00</span>
                       </div>
-                    </div>
+                    
+                      <div class="valid-feedback">
+                        Looks good!
+                    </div> </div>
                 <div class="mb-3">
                 <label class="form-label" for="description">Description</label>
-                <textarea class="form-control" type="text" id="description" name="campground[description]"><%=camp.description%></textarea>
-                </div> 
+                <textarea class="form-control" type="text" id="description" name="campground[description]" required><%=camp.description%></textarea>
+                 
+                <div class="valid-feedback">
+                    Looks good!
+                </div> </div>
                 <div class="mb-3"><button class="btn btn-info">Update Campground</button></div> 
                 
             </form>
