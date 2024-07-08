@@ -32,7 +32,7 @@ async function seedImg() {
 }
 const seedsDb=async()=>{
     await Campground.deleteMany({});
-    for(let i=0;i<50;i++){
+    for(let i=0;i<300;i++){
         const random=Math.floor(Math.random()*1000)+1;
         const price=Math.floor(Math.random()*20)+10;
         const camp=new Campground({
@@ -57,6 +57,10 @@ const seedsDb=async()=>{
               }
               
             ],
+            geometry:{
+              type:"Point",
+              coordinates:[cities[random].longitude,cities[random].latitude]
+            },
             description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia eligendi pariatur perferendis maiores nesciunt adipisci consequuntur sint error repellat laboriosam. Ratione sit consequatur cupiditate accusamus reprehenderit laborum beatae cum in.",
             price,
             author:'667e744aaae6ebf1d47e8ac9'
