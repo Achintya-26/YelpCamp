@@ -3,9 +3,13 @@ const cities=require('./cities');
 const {places, descriptors}=require('./seedsHelper');
 const Campground=require('../models/campground');
 const axios=require('axios');
+// const dbUrl=process.env.DB_URL;
 
+if(process.env.NODE_ENV!=="production"){
+  require('dotenv').config()
+}
 
-mongoose.connect('mongodb://localhost:27017/yelp-camp')
+mongoose.connect(process.env.DB_URL)
 .then(()=>{
     console.log('Connection Open!');
 })
@@ -29,7 +33,7 @@ async function seedImg() {
     } catch (err) {
       console.error(err)
     }
-}
+}  
 const seedsDb=async()=>{
     await Campground.deleteMany({});
     for(let i=0;i<300;i++){
@@ -63,7 +67,7 @@ const seedsDb=async()=>{
             },
             description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia eligendi pariatur perferendis maiores nesciunt adipisci consequuntur sint error repellat laboriosam. Ratione sit consequatur cupiditate accusamus reprehenderit laborum beatae cum in.",
             price,
-            author:'667e744aaae6ebf1d47e8ac9'
+            author:'668ce33f8e034a221c0825e5'
         })
         await camp.save();
     }
